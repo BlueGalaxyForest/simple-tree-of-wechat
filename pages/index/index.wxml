@@ -1,0 +1,2 @@
+ 
+<simpleTree key="ATID" fatherId="FatherID" titleName="TypeName" treeData="{{lawTree}}"></simpleTree>
