@@ -1,0 +1,27 @@
+# 需要配置点击root是否可以展示孩子(ok)
+1.默认点击root是需要展示孩子的(ok)
+2.这个印记开关有问题,只是影响当前的treeData,而不是整个treeData=>rootTreeData=>rootTreeData不行,因为嵌套组件的原因(ok)
+3.只能使用this.triggerEvent('getnode', node);向外抛出:
+	        if (node.hasFather) {
+			  this.triggerEvent('getnode', node);
+			  return
+			}
+			
+
+# 配置options,clickActive=false代表取消印记(ok)
+
+# 印记的颜色可以自定义配置(ok)
+
+# 配置是否需要点击排他思想(ok)
+	*当我点击一个根的时候,可以触发addClickSign函数(ok)
+	*还需要把当前节点传进去,避免闪动bug(ok)
+	
+# 把node传出去的时候,需要把所有祖先节点都传出去(ok)
+	1. 能不能在attached的时候,把原始tree放到globalData(ok)
+	2. 需要一个获得祖先的函数
+	
+# 侧边图标应该也可以自定义
+	1. iconfont改为baseUrl和src的形式
+	2. 新建config.js(ok)
+	3. 应该需要一个type字段来做一个保证(ok)
+	4. 先准备两张静态图片(ok)

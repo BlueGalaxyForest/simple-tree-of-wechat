@@ -1,2 +1,4 @@
  
-<simpleTree key="ATID" fatherId="FatherID" titleName="TypeName" treeData="{{lawTree}}"></simpleTree>
+<simpleTree 
+bind:getnode="getNode"
+key="ATID" fatherId="FatherID" titleName="TypeName" treeData="{{lawTree}}" options="{{options}}"></simpleTree>

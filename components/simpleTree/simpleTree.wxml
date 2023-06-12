@@ -1,12 +1,15 @@
 <block wx:for="{{treeData}}" wx:for-item="node" wx:key="index">
   <view class="node" mark:node="{{node}}">
-    <iconfont bindtap="toggleNode" wx:if="{{node.children}}" class="icon {{node.expanded ? 'expanded' : 'collapsed'}}" src='/online/online-icon-02.png' size='15'></iconfont>
+    <!-- <iconfont bindtap="toggleNode" wx:if="{{node.children}}" class="icon {{node.expanded ? 'expanded' : 'collapsed'}}" src='/online/online-icon-02.png' size='15'></iconfont> -->
+    <iconfont bindtap="toggleNode" wx:if="{{node.children && !node.expanded}}" class="icon" type="{{options.iconConfig.type}}" src='{{options.iconConfig.icon1}}' size='{{options.iconConfig.iconSize}}'></iconfont>
+    <iconfont bindtap="toggleNode" wx:if="{{node.children && node.expanded}}" class="icon" type="{{options.iconConfig.type}}" src='{{options.iconConfig.icon2}}' size='{{options.iconConfig.iconSize}}'></iconfont>
+
     <view class="occupy" wx:if="{{!node.children}}"></view>
     <view bindtap="getInfo" class="title ">
-      <text class="text {{node.active?'active':''}} {{node.isClick?'click-active':''}}">{{node[titleName]}}</text>
+      <text style="background-color: {{node.isClick?options.clickActiveColor:''}};" class="text {{node.active?'active':''}} {{node.isClick?'click-active':''}}">{{node[titleName]}}</text>
     </view>
   </view>
   <view wx:if="{{node.expanded}}" class="children">
-    <tree bind:getnode="handleNode" treeData="{{node.children?node.children:[]}}" key="{{key}}" fatherId="{{fatherId}}" titleName="{{titleName}}"></tree>
+    <tree bind:getnode="handleNode" treeData="{{node.children?node.children:[]}}" key="{{key}}" fatherId="{{fatherId}}" titleName="{{titleName}}" options="{{options}}"></tree>
   </view>
 </block>
